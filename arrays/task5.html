@@ -16,11 +16,14 @@
             var y = typeof(arr[i]);
             if ( y === 'number') {
                 num.push(arr[i]);
-            } else if (y === 'string') {
+            } 
+            else if (y === 'string') {
                 str.push(arr[i]);
-            } else if (y === 'boolean') {
+            } 
+            else if (y === 'boolean') {
                 bool.push(arr[i]);
-            } else(y === 'object') {
+            } 
+            else {
                 obj.push(arr[i]);
             }
         }
