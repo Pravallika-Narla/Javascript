@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <style>
+        span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" id="password" placeholder="enter password">
+        <span style="color: blue">Password is strong</span>
+        <span style="color: greenyellow">Password is medium</span>
+        <span style="color: red;">Password is weak</span>
+        <input type="submit">
+    </form>
+    <script>
+        var form=document.forms[0];
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            var inp=document.querySelector("input");
+            var span1=document.querySelectorAll("span")[0];
+            var span2=document.querySelectorAll("span")[1];
+            var span3=document.querySelectorAll("span")[2];
+            if(inp.value.length>10)
+            {
+                span1.style.display="block";
+                span2.style.display="none";
+                span3.style.display="none";
+            }
+            else if(inp.value.length<=10 && inp.value.length>5)
+            {
+                span1.style.display="none";
+                span2.style.display="block";
+                span3.style.display="none";
+            }
+            else
+            {
+                span1.style.display="none";
+                span2.style.display="none";
+                span3.style.display="block";
+            }
+        })
+    </script>
+</body>
+</html>

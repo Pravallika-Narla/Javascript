@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <style>
+        #match {
+            display: none;
+        }
+        #notmatch {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <input type="text" placeholder="Enter Password"><br><br>
+        <input type="text" placeholder="Confirm Password"><br><br>
+        <span style="color: red;" id="match">Password match</span>
+        <span style="color: red;" id="notmatch">Password not match</span>
+        
+        <input type="submit">
+    </form>
+
+    <script>
+        var form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var inp1 = document.querySelectorAll("input")[0];
+            var inp2 = document.querySelectorAll("input")[1];
+            if (inp1.value == inp2.value) {
+                console.log("Password Matched");
+                var span1 = document.getElementById("match")
+                span1.style.display = "block";
+            } else {
+                console.log("Password is not Matched");
+                var span = document.getElementById("notmatch")
+                span.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
