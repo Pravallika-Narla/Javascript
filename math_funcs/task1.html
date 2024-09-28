@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+</style>
+<body>
+    <script>
+       
+        var btn1 = document.createElement("button") 
+        btn1.innerHTML= "click me to generate 1 to 10"
+        document.body.appendChild(btn1)
+        var btn2 = document.createElement("button")
+        btn2.innerHTML= "click me to generate 11 to 100"
+        document.body.appendChild(btn2)
+        var btn3 = document.createElement("button")
+        btn3.innerHTML= "click me to generate 101 to 1000"
+        document.body.appendChild(btn3)
+
+        btn1.addEventListener("click",function(){
+            let b=Math.round(Math.random()*11)
+            btn1.innerHTML=b;
+            // console.log(Math.random()*11)
+        })
+        btn2.addEventListener("click",function(){
+            let c=Math.round(Math.random() * (100 - 11 + 1)) + 11;  //bcoz if we want only between 10 and 101 vch means 11 to 100 then 100-11=90
+            btn2.innerHTML=c;
+           
+        })
+        btn3.addEventListener("click",function(){
+            let d=Math.round(Math.random()*1001)
+            btn3.innerHTML=d;
+          
+        })
+    </script>
+</body>
+</html>

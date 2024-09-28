@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+var div = document.createElement("div");
+div.style.height = "150px";
+div.style.width = "600px";
+div.style.border = "2px solid black";
+div.style.textAlign = "center";
+div.style.padding = "20px";
+document.body.appendChild(div);
+
+var btn = document.createElement("button");
+btn.innerText = "Click here";
+btn.style.marginTop = "10px";
+document.body.appendChild(btn);
+
+// Array of objects containing author and quote
+var quotes = [
+    { author: "Author 1", quote: "This is the first quote." },
+    { author: "Author 2", quote: "Here is another insightful quote." },
+    { author: "Author 3", quote: "Quotes are a great way to convey ideas." },
+    { author: "Author 4", quote: "End your day with a positive thought." }
+];
+var color=["green","pink","blue","yellow"] 
+var currentIndex = 0;
+
+btn.addEventListener("click", function () {
+    // Display the quote and the author in the div
+    div.innerHTML = `
+                     <p><strong>Author:</strong> ${quotes[currentIndex].author}</p>
+                     <p><strong>Quote:</strong> ${quotes[currentIndex].quote}</p>`;
+               
+                     div.style.backgroundColor=color[currentIndex]
+                    //  div.style.color="white";
+    // Move to the next quote, and if at the end, reset to 0
+    currentIndex++;
+    if (currentIndex >= quotes.length) {
+        currentIndex = 0;
+    }
+});
+    </script>
+</body>
+</html>
