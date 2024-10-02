@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     .row{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap:10px;
+    }
+    .row>div{
+        border: 1px solid blue;
+        padding: 5px;
+    }
+</style>
+<body>
+    <div class="row">
+
+    </div>
+    <script>
+        let data=localStorage.getItem("arr");
+        data1=JSON.parse(data);
+        data1.map((val)=>{
+                console.log(val);
+                var parent=document.querySelector(".row");
+                var main=document.createElement("div");
+                var IMG=document.createElement("img");
+                var child1=document.createElement("div");
+                var child2=document.createElement("div");
+                var child3=document.createElement("div");
+                var btn1=document.createElement("button");
+                IMG.src=val.image;
+                IMG.style.width="300px";
+                child1.innerText=val.id;
+                child2.innerText=val.title;
+                child3.innerText=val.description;
+                btn1.innerText="remove";
+                btn1.addEventListener("click",()=>{
+                    localStorage.removeItem(val.id);
+                    main.remove();
+                })
+                main.append(IMG,child1,child2,child3,btn1);
+                parent.appendChild(main);
+                
+            })
+    </script>
+</body>
+</html>

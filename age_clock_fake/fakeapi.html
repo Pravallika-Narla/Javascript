@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  body{
+    margin:0px;
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10px;
+}
+  </style>
+</head>
+<body>
+  <script>
+    async function products(){
+      let a=await fetch("https://fakestoreapi.com/products")
+      let b=await a.json();
+      console.log(b);
+      var card=b.map((val)=>{
+      var main=document.createElement("div");
+      main.style.display="flex";
+      main.style.flexWrap="wrap";
+      main.style.rowGap="20px";
+      main.style.justifyContent="center"
+      document.body.appendChild(main)
+    
+     var div=document.createElement("div");
+      div.style.width="500px";
+      div.style.height="700px";
+      div.style.border="1px solid #ddd";
+      div.style.boxShadow="0 2px 8px rgba(0, 0, 0, 0.1)"
+      div.style.display="flex";
+      
+      div.style.textAlign="center";
+      div.style.alignItems="center";
+      div.style.flexDirection="column";
+
+      var h3=document.createElement("h3");
+      h3.innerText=val.category
+
+      var image=document.createElement("img");
+      image.style.height="150px";
+      image.style.width="300px";
+      image.setAttribute("src",val.image)
+
+      var h1=document.createElement("h1");
+      h1.innerText=val.title;
+
+      var para=document.createElement("p")
+      para.innerText=val.description;
+
+      var h4=document.createElement("h4");
+      h4.innerText=val.price;
+
+      var h2=document.createElement("h2");
+       h2.innerText=val.rating.rate;
+
+
+      main.appendChild(div);
+      div.appendChild(h3);
+      div.appendChild(image);
+      div.appendChild(h1);
+      div.appendChild(para);
+      div.appendChild(h4);
+      div.appendChild(h2);
+    
+
+      })
+      
+      }products()
+      
+  </script>
+</body>
+</html>

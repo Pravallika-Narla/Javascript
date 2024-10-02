@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        
+      }
+       #container{
+        height: 50vh;
+        width: 50%;
+        background-color: purple;
+        color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        text-align: center;
+      } 
+     
+    </style>
+</head>
+<body>
+    <div id="container">
+      <p id="clock"></p>
+      <p id="month" style="color: #e9eb9e"></p> 
+    </div>
+    
+    <script>
+        function clock() {
+        let date = new Date();
+        let hrs = date.getHours();
+        let mins = date.getMinutes();
+        let secs = date.getSeconds();
+        let month=date.toDateString();
+        let period = "AM";
+      
+        if (hrs == 0) hrs = 12;
+        if (hrs > 12) {
+          hrs = hrs - 12;
+          period = "PM";
+        }
+      
+        hrs = hrs < 10 ? `0${hrs}` : hrs;
+        mins = mins < 10 ? `0${mins}` : mins;
+        secs = secs < 10 ? `0${secs}` : secs;
+      
+        let time = `${hrs}:${mins}:${secs} ${period}`;
+      let currentMD=`${month}`;
+        
+        document.getElementById("clock").innerText = time;
+      document.getElementById("month").innerText=currentMD;
+      
+      }
+      setInterval(clock, 1000);
+    
+  
+    </script>
+</body>
+</html>
